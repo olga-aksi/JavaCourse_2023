@@ -10,6 +10,7 @@ public class ContactHelper extends HelperBase {
   public ContactHelper(WebDriver wd) {
     super(wd);
   }
+  public int contactNumber;
 
   public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getContactName());
@@ -59,4 +60,20 @@ public class ContactHelper extends HelperBase {
   public void updateContact() {
     click(By.xpath("//input[22]"));
   }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.name("selected[]"));
+  }
+
+  public void createContact(ContactData contact) {
+    click(By.linkText("add new"));
+    fillContactForm(contact, true);
+    submitContactCreation();
+    click(By.linkText("home"));
+  }
+
+  public int contactNumber() {
+    contactNumber = wd.findElements(By.name("selected[]")).size();
+    return contactNumber;
+    }
 }
