@@ -19,23 +19,41 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void returnHome() {
-    if (isElementPresent(By.id("maintable")) {
+    if (isElementPresent(By.id("maintable"))) {
       return;
     }
     click(By.linkText("home"));
   }
 
   public void gotoContactCreation() {
+    if (isElementPresent(By.tagName("h1"))
+            && wd.findElement(By.tagName("h1")).getText().equals("Edit / add address book entry")
+            && isElementPresent(By.name("new_group")) ) {
+      return;
+    }
     click(By.linkText("add new"));
   }
 
   public void gotoContactDetails() {
+    if (isElementPresent(By.name("modifiy"))) {
+      return;
+    }
     click(By.xpath("//img[@alt='Details']"));
   }
   public void gotoEditContact() {
+    if (isElementPresent(By.tagName("h1"))
+            && wd.findElement(By.tagName("h1")).getText().equals("Edit / add address book entry")
+            && ! isElementPresent(By.name("new_group")) ) {
+      return;
+    }
     click(By.xpath("//img[@alt='Edit']"));
   }
   public void gotoModifyContact() {
+    if (isElementPresent(By.tagName("h1"))
+            && wd.findElement(By.tagName("h1")).getText().equals("Edit / add address book entry")
+            && ! isElementPresent(By.name("new_group")) ) {
+      return;
+    }
     click(By.name("modifiy"));
   }
 }
