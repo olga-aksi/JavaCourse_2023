@@ -13,5 +13,36 @@ public class GroupCreationTests extends TestBase {
     app.getGroupHelper().submitGroupCreation();
     app.getGroupHelper().returnToGroupPage();
    }
-
+   @Test
+  public void testGroupNoNameCreation() {
+     app.getNavigationHelper().gotoGroupPage();
+     app.getGroupHelper().initGroupCreation();
+     app.getGroupHelper().fillGroupForm(new GroupData("", "test2", "test3"));
+     app.getGroupHelper().submitGroupCreation();
+     app.getGroupHelper().returnToGroupPage();
+   }
+  @Test
+  public void testGroupNoHeaderCreation() {
+    app.getNavigationHelper().gotoGroupPage();
+    app.getGroupHelper().initGroupCreation();
+    app.getGroupHelper().fillGroupForm(new GroupData("test1","", "test3"));
+    app.getGroupHelper().submitGroupCreation();
+    app.getGroupHelper().returnToGroupPage();
+  }
+  @Test
+  public void testGroupNoFooterCreation() {
+    app.getNavigationHelper().gotoGroupPage();
+    app.getGroupHelper().initGroupCreation();
+    app.getGroupHelper().fillGroupForm(new GroupData("test1","test2", ""));
+    app.getGroupHelper().submitGroupCreation();
+    app.getGroupHelper().returnToGroupPage();
+  }
+  @Test
+  public void testGroupAllEmptyCreation() {
+    app.getNavigationHelper().gotoGroupPage();
+    app.getGroupHelper().initGroupCreation();
+    app.getGroupHelper().fillGroupForm(new GroupData("","", ""));
+    app.getGroupHelper().submitGroupCreation();
+    app.getGroupHelper().returnToGroupPage();
+  }
 }
