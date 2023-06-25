@@ -4,22 +4,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class NavigationHelper {
+public class NavigationHelper extends HelperBase {
   private WebDriver wd;
 
   public NavigationHelper(WebDriver wd) {
-    this.wd = wd;
+    super(wd);
   }
 
   public void gotoGroupPage() {
-    wd.findElement(By.linkText("groups")).click();
+    click(By.linkText("groups"));
   }
 
   public void returnHome() {
-    wd.findElement(By.linkText("home")).click();
+    click(By.linkText("home"));
   }
 
   public void gotoContactCreation() {
-    wd.findElement(By.linkText("add new")).click();
+    click(By.linkText("add new"));
   }
 }
