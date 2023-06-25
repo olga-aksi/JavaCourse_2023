@@ -22,4 +22,14 @@ public class NavigationHelper extends HelperBase {
   public void gotoContactCreation() {
     click(By.linkText("add new"));
   }
+
+  public void gotoContactDetails() {
+    click(By.xpath("//img[@alt='Details']"));
+  }
+  public void gotoEditContact() {
+    click(By.xpath("//img[@alt='Edit']"));
+  }
+  public void gotoModifyContact() {
+    click(By.name("modifiy"));
+  }
 }
