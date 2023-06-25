@@ -11,5 +11,17 @@ public class GroupDeletionTests extends TestBase {
     app.getGroupHelper().deleteSelectedGroups();
     app.getGroupHelper().returnToGroupPage();
   }
-
+  @Test
+  public void testsGroupDeletionNoSelection() {
+    app.getNavigationHelper().gotoGroupPage();
+    app.getGroupHelper().deleteSelectedGroups();
+    app.getNavigationHelper().returnHome();
+  }
+  @Test
+  public void testsMultipleGroupDeletionFromList() {
+    app.getNavigationHelper().gotoGroupPage();
+    app.getGroupHelper().selectMultipleGroups();
+    app.getGroupHelper().deleteSelectedGroups();
+    app.getNavigationHelper().returnHome();
+  }
 }

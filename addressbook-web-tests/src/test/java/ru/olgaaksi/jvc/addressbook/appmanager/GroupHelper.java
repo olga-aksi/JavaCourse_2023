@@ -42,4 +42,10 @@ public class GroupHelper extends HelperBase {
   public void submitGroupModification() {
     click(By.name("update"));
   }
+
+  public void selectMultipleGroups() {
+    click(By.xpath("//span/input"));
+    click(By.xpath("//span[2]/input"));
+    click(By.xpath("//span[3]/input"));
+  }
 }
