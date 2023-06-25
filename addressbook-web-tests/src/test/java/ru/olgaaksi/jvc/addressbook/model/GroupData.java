@@ -1,4 +1,4 @@
-package ru.olgaaksi.jvc.addressbook;
+package ru.olgaaksi.jvc.addressbook.model;
 
 public class GroupData {
   private final String name;

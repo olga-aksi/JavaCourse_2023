@@ -1,4 +1,4 @@
-package ru.olgaaksi.jvc.addressbook;
+package ru.olgaaksi.jvc.addressbook.model;
 
 public class ContactData {
   private final String contactName;
@@ -69,17 +69,5 @@ public class ContactData {
 
   public String getEmail() {
     return email;
-  }
-
-  public String getBirthDay() {
-    return birthDay;
-  }
-
-  public String getBirthMonth() {
-    return birthMonth;
-  }
-
-  public String getBirthYear() {
-    return birthYear;
   }
 }
