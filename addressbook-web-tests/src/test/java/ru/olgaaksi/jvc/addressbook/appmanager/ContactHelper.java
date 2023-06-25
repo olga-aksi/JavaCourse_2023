@@ -53,4 +53,8 @@ public class ContactHelper extends HelperBase {
   public void selectAllContacts() {
     click(By.id("MassCB"));
   }
+
+  public void updateContact() {
+    click(By.xpath("//input[22]"));
+  }
 }
