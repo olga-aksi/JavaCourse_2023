@@ -12,5 +12,39 @@ public class ContactCreationTests extends TestBase {
     app.getContactHelper().submitContactCreation();
     app.getNavigationHelper().returnHome();
   }
-
+  @Test
+  public void testEmptyContactCreation() throws Exception {
+    app.getNavigationHelper().gotoContactCreation();
+    app.getContactHelper().fillContactForm(new ContactData("", "", "", "", "", "", "", "", "", "", "", "", ""));
+    app.getContactHelper().submitContactCreation();
+    app.getNavigationHelper().returnHome();
+  }
+  @Test
+  public void testNoNameContactCreation() throws Exception {
+    app.getNavigationHelper().gotoContactCreation();
+    app.getContactHelper().fillContactForm(new ContactData("", "Mikhaylovna", "Alifanova", "Aksi", "QA engineer", "X5 Group", "Saint Petersburg, Komendantskiy 9", "+78123335566", "+79219997765", "olga.aksi@gmail.com", "14", "January", "1985"));
+    app.getContactHelper().submitContactCreation();
+    app.getNavigationHelper().returnHome();
+  }
+  @Test
+  public void testNoSurnameContactCreation() throws Exception {
+    app.getNavigationHelper().gotoContactCreation();
+    app.getContactHelper().fillContactForm(new ContactData("Olga", "Mikhaylovna", "", "Aksi", "QA engineer", "X5 Group", "Saint Petersburg, Komendantskiy 9", "+78123335566", "+79219997765", "olga.aksi@gmail.com", "14", "January", "1985"));
+    app.getContactHelper().submitContactCreation();
+    app.getNavigationHelper().returnHome();
+  }
+  @Test
+  public void testNoMiddleNameContactCreation() throws Exception {
+    app.getNavigationHelper().gotoContactCreation();
+    app.getContactHelper().fillContactForm(new ContactData("Olga", "", "Alifanova", "Aksi", "QA engineer", "X5 Group", "Saint Petersburg, Komendantskiy 9", "+78123335566", "+79219997765", "olga.aksi@gmail.com", "14", "January", "1985"));
+    app.getContactHelper().submitContactCreation();
+    app.getNavigationHelper().returnHome();
+  }
+  @Test
+  public void testNoPhoneContactCreation() throws Exception {
+    app.getNavigationHelper().gotoContactCreation();
+    app.getContactHelper().fillContactForm(new ContactData("Olga", "Mikhaylovna", "Alifanova", "Aksi", "QA engineer", "X5 Group", "Saint Petersburg, Komendantskiy 9", "", "", "olga.aksi@gmail.com", "14", "January", "1985"));
+    app.getContactHelper().submitContactCreation();
+    app.getNavigationHelper().returnHome();
+  }
 }
