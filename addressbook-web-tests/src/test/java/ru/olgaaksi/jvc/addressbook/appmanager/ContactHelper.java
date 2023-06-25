@@ -43,4 +43,14 @@ public class ContactHelper extends HelperBase {
   public void deleteContactFromEdit() {
     click(By.xpath("//form[2]/input[2]"));
   }
+
+  public void selectMultipleContacts() {
+    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td/input"));
+    click(By.xpath("//table[@id='maintable']/tbody/tr[3]/td/input"));
+    click(By.xpath("//table[@id='maintable']/tbody/tr[4]/td/input"));
+  }
+
+  public void selectAllContacts() {
+    click(By.id("MassCB"));
+  }
 }

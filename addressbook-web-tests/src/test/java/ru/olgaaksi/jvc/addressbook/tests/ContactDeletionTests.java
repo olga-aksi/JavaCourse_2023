@@ -23,4 +23,18 @@ public class ContactDeletionTests extends TestBase {
     app.getContactHelper().deleteContact();
     app.getNavigationHelper().returnHome();
   }
+  @Test
+  public void testsMultipleContactDeletionFromList() {
+    app.getNavigationHelper().returnHome();
+    app.getContactHelper().selectMultipleContacts();
+    app.getContactHelper().deleteContact();
+    app.getNavigationHelper().returnHome();
+  }
+  @Test
+  public void testsAllContactDeletionFromList() {
+    app.getNavigationHelper().returnHome();
+    app.getContactHelper().selectAllContacts();
+    app.getContactHelper().deleteContact();
+    app.getNavigationHelper().returnHome();
+  }
 }
