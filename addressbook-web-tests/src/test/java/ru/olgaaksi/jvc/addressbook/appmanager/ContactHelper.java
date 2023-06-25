@@ -2,6 +2,8 @@ package ru.olgaaksi.jvc.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.olgaaksi.jvc.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase {
@@ -9,7 +11,7 @@ public class ContactHelper extends HelperBase {
     super(wd);
   }
 
-  public void fillContactForm(ContactData contactData) {
+  public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getContactName());
     type(By.name("middlename"), contactData.getMiddleName());
     type(By.name("lastname"), contactData.getSurname());
@@ -20,6 +22,13 @@ public class ContactHelper extends HelperBase {
     type(By.name("home"), contactData.getHomePhone());
     type(By.name("mobile"), contactData.getMobilePhone());
     type(By.name("email"), contactData.getEmail());
+
+    if (creation) {
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    } else {
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
+    }
+
   }
 
   public void submitContactCreation() {

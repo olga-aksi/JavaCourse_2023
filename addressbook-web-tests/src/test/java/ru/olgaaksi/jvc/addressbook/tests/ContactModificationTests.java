@@ -8,7 +8,7 @@ public class ContactModificationTests extends TestBase {
   public void testContactModificationFromList() {
     app.getNavigationHelper().returnHome();
     app.getNavigationHelper().gotoEditContact();
-    app.getContactHelper().fillContactForm(new ContactData("Vladimir", "Iurievich", "Babkin", "Sotnik", "Security officer", "X5 Group", "Saint Petersburg, Komendantskiy 9", "+78123335566", "+79219997765", "olga.aksi@gmail.com", "09", "May", "1984"));
+    app.getContactHelper().fillContactForm(new ContactData("Vladimir", "Iurievich", "Babkin", "Sotnik", "Security officer", "X5 Group", "Saint Petersburg, Komendantskiy 9", "+78123335566", "+79219997765", "olga.aksi@gmail.com", "09", "May", "1984", null), false);
     app.getContactHelper().updateContact();
     app.getNavigationHelper().returnHome();
   }
@@ -17,7 +17,7 @@ public class ContactModificationTests extends TestBase {
     app.getNavigationHelper().returnHome();
     app.getNavigationHelper().gotoContactDetails();
     app.getNavigationHelper().gotoModifyContact();
-    app.getContactHelper().fillContactForm(new ContactData("iVladimir", "iIurievich", "iBabkin", "Sotnik", "Security officer", "X5 Group", "Saint Petersburg, Komendantskiy 9", "+78123335566", "+79219997765", "olga.aksi@gmail.com", "09", "May", "1984"));
+    app.getContactHelper().fillContactForm(new ContactData("iVladimir", "iIurievich", "iBabkin", "Sotnik", "Security officer", "X5 Group", "Saint Petersburg, Komendantskiy 9", "+78123335566", "+79219997765", "olga.aksi@gmail.com", "09", "May", "1984", null), false);
     app.getContactHelper().updateContact();
     app.getNavigationHelper().returnHome();
   }
