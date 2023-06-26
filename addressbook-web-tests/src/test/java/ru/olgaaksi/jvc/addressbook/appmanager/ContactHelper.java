@@ -73,7 +73,6 @@ public class ContactHelper extends HelperBase {
   }
 
   public int contactNumber() {
-    contactNumber = wd.findElements(By.name("selected[]")).size();
-    return contactNumber;
+    return wd.findElements(By.name("selected[]")).size();
     }
 }
