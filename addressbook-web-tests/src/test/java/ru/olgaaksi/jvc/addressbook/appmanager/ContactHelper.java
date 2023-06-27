@@ -44,6 +44,10 @@ public class ContactHelper extends HelperBase {
     acceptAlert();
     wd.findElement(By.cssSelector("div.msgbox"));
   }
+  public void deleteNoSelectionContact() {
+    click(By.xpath("//input[@value='Delete']"));
+    acceptAlert();
+  }
   public void deleteContactFromEdit() {
     click(By.xpath("//form[2]/input[2]"));
   }
