@@ -36,12 +36,13 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//div[@id='content']/form/input[21]"));
   }
 
-  public void selectContact() {
-    click(By.name("selected[]"));
+  public void selectContact(int index) {
+    wd.findElements(By.name("selected[]")).get(index).click();
   }
   public void deleteContact() {
     click(By.xpath("//input[@value='Delete']"));
     acceptAlert();
+    wd.findElement(By.cssSelector("div.msgbox"));
   }
   public void deleteContactFromEdit() {
     click(By.xpath("//form[2]/input[2]"));
