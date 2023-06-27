@@ -14,7 +14,7 @@ public class GroupCreationTests extends TestBase {
     List<GroupData> before = app.getGroupHelper().getGroupList();
     app.getGroupHelper().createGroup(new GroupData("test1", "test2", "test3"));
     List<GroupData> after = app.getGroupHelper().getGroupList();
-    Assert.assertEquals(after, before.size() + 1);
+    Assert.assertEquals(after.size(), before.size() + 1);
    }
    @Test
   public void testGroupNoNameCreation() {
@@ -22,7 +22,7 @@ public class GroupCreationTests extends TestBase {
      List<GroupData> before = app.getGroupHelper().getGroupList();
      app.getGroupHelper().createGroup(new GroupData("", "test2", "test3"));
      List<GroupData> after = app.getGroupHelper().getGroupList();
-     Assert.assertEquals(after, before.size() + 1);
+     Assert.assertEquals(after.size(), before.size() + 1);
    }
   @Test
   public void testGroupNoHeaderCreation() {
@@ -30,7 +30,7 @@ public class GroupCreationTests extends TestBase {
     List<GroupData> before = app.getGroupHelper().getGroupList();
     app.getGroupHelper().createGroup(new GroupData("test1", "", "test3"));
     List<GroupData> after = app.getGroupHelper().getGroupList();
-    Assert.assertEquals(after, before.size() + 1);
+    Assert.assertEquals(after.size(), before.size() + 1);
   }
   @Test
   public void testGroupNoFooterCreation() {
@@ -38,7 +38,7 @@ public class GroupCreationTests extends TestBase {
     List<GroupData> before = app.getGroupHelper().getGroupList();
     app.getGroupHelper().createGroup(new GroupData("test1", "test2", ""));
     List<GroupData> after = app.getGroupHelper().getGroupList();
-    Assert.assertEquals(after, before.size() + 1);
+    Assert.assertEquals(after.size(), before.size() + 1);
   }
   @Test
   public void testGroupAllEmptyCreation() {
@@ -46,6 +46,6 @@ public class GroupCreationTests extends TestBase {
     List<GroupData> before = app.getGroupHelper().getGroupList();
     app.getGroupHelper().createGroup(new GroupData("", "", ""));
     List<GroupData> after = app.getGroupHelper().getGroupList();
-    Assert.assertEquals(after, before.size() + 1);
+    Assert.assertEquals(after.size(), before.size() + 1);
   }
 }

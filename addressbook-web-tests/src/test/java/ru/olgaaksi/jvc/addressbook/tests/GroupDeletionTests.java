@@ -4,34 +4,36 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import ru.olgaaksi.jvc.addressbook.model.GroupData;
 
+import java.util.List;
+
 public class GroupDeletionTests extends TestBase {
 
   @Test
   public void testGroupDeletion() throws Exception {
     app.getNavigationHelper().gotoGroupPage();
-    int before = app.getGroupHelper().getGroupCount();
+    List<GroupData> before = app.getGroupHelper().getGroupList();
     if (! app.getGroupHelper().isThereAGroup()) {
       app.getGroupHelper().createGroup(new GroupData("test1", null, null));
     }
     app.getGroupHelper().selectGroup(0);
     app.getGroupHelper().deleteSelectedGroups();
     app.getNavigationHelper().gotoGroupPage();
-    int after = app.getGroupHelper().getGroupCount();
-    Assert.assertEquals(after, before - 1);
+    List<GroupData> after = app.getGroupHelper().getGroupList();
+    Assert.assertEquals(after.size(), before.size() - 1);
   }
   @Test
   public void testsGroupDeletionNoSelection() {
     app.getNavigationHelper().gotoGroupPage();
-    int before = app.getGroupHelper().getGroupCount();
+    List<GroupData> before = app.getGroupHelper().getGroupList();
     app.getGroupHelper().deleteSelectedGroups();
     app.getNavigationHelper().gotoGroupPage();
-    int after = app.getGroupHelper().getGroupCount();
-    Assert.assertEquals(after, before);
+    List<GroupData> after = app.getGroupHelper().getGroupList();
+    Assert.assertEquals(after.size(), before.size());
   }
   @Test
   public void testsMultipleGroupDeletionFromList() {
     app.getNavigationHelper().gotoGroupPage();
-    int before = app.getGroupHelper().getGroupCount();
+    List<GroupData> before = app.getGroupHelper().getGroupList();
     if (! app.getGroupHelper().isThereAGroup()) {
       app.getGroupHelper().createGroup(new GroupData("test1", null, null));
       app.getGroupHelper().createGroup(new GroupData("test1", null, null));
@@ -40,7 +42,7 @@ public class GroupDeletionTests extends TestBase {
     app.getGroupHelper().selectMultipleGroups();
     app.getGroupHelper().deleteSelectedGroups();
     app.getNavigationHelper().gotoGroupPage();
-    int after = app.getGroupHelper().getGroupCount();
-    Assert.assertEquals(after, before - 3);
+    List<GroupData> after = app.getGroupHelper().getGroupList();
+    Assert.assertEquals(after.size(), before.size() - 3);
   }
 }
